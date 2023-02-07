@@ -22,7 +22,7 @@ public class Time {
 
         // print value of seconds since midnight
         System.out.print(hour);
-        System.out.print(":");
+        System.out.print(":" + minute);
         System.out.print(minute);
         System.out.print(":");
         System.out.print(second);

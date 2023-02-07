@@ -20,3 +20,4 @@ public class Ex43 {
         System.out.println(".");
     }
 }
+

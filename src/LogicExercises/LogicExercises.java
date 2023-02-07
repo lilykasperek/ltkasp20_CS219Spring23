@@ -59,7 +59,7 @@ public class LogicExercises {
      */
 
     public static boolean ordered(int d1, int d2, int d3) {
-        return false; // fill in function body
+        return d1 < d2 && d2 < d3;
     }
 
     /**
