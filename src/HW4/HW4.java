@@ -87,22 +87,22 @@ public class HW4 {
         return year;
     }
 
-    public static double getValidCompound() {
+    public static int getValidCompound() {
         Scanner kbd = new Scanner(System.in);
         boolean flag = true;
 
         // initialize compound
-        double compound = 0;
+        int compound = 0;
         while (flag) {
 
             // prompt for number of times to compound
             System.out.print("Enter the number of times compounded per year: ");
 
-            if (kbd.hasNextDouble()) {
-                compound = kbd.nextDouble();
+            if (kbd.hasNextInt()) {
+                compound = kbd.nextInt();
                 if (compound < 0) {
                     System.out.printf("Error: initial investment should be greater than zero. " +
-                            "You entered \"%.2f\".\n", compound);
+                            "You entered \"%d\".\n", compound);
                 } else {
                     flag = false;
                 }
@@ -119,7 +119,7 @@ public class HW4 {
         double C = getValidInvestment();
         double r = getValidInterestRate();
         double t = getValidNumberOfYears();
-        int n = (int) getValidCompound();
+        int n = getValidCompound();
         // print final value of the investment
         System.out.println("The final value of the investment is " +
                 Util.investment(C, r, t, n));
