@@ -94,7 +94,17 @@ public class MoreLoopExercises {
      * Question: Does the function work if n is negative?
      */
     public static int count7s(int n) {
-        return -1;
+
+        int count = 0;
+
+        while (n > 0) {
+
+            if (n % 10 == 7) {
+                count ++;
+            }
+           n = n / 10;
+        }
+        return count;
     }
 
     /*
@@ -109,8 +119,22 @@ public class MoreLoopExercises {
      *  sum3or5(1000) = 233168
      */
     public static int sum3or5(int n) {
-        return -1;
-    }
+
+        // assign variable to store sum of multiples of 3 and 5
+        int sum = 0;
+
+        // start at 0, loop while i < input, increment i + 1
+        for (int i = 0; i < n; i++) {
+
+            // if n % 3 or n % 5 = 0, we know the values are multiples or 3 or 5
+            if (i % 3 == 0 || i % 5 == 0) {
+                // we need to store and add these values
+                sum += i;
+            }
+        }
+        // need to return sum
+        return sum;
+    } // Time spent: 20 minutes
 
     /*
      * Return the first factor of n greater than 1
@@ -139,7 +163,15 @@ public class MoreLoopExercises {
      * Question: Why is this a void function?
      */
     public static void stars(int n) {
-        // fill in code
+        // iterates when i < n
+        for (int i = 0; i < n; i ++) {
+            // prints out star each time condition is satisfied
+            // since we start at 0 it has to be i < n and not i <= n
+             System.out.print("*");
+        }
+        System.out.println();
+
+        // Time spent: 5 minutes
     }
 
     /*
@@ -158,8 +190,15 @@ public class MoreLoopExercises {
      *  Hint: use the function stars you defined above.
      */
     public static void triangle(int n) {
-        // fill in code
-    }
+        // iterates when i <= n
+        for (int i = 0; i <= n; i ++) {
+            // prints stars i times
+            // so when i is 0, we print one star
+            // when i is 1, we print two stars and so on
+            stars(i);
+        }
+        System.out.println();
+    } // Time spent: 5 minutes
 
     /*
      *  Fizz Buzz
@@ -210,7 +249,9 @@ public class MoreLoopExercises {
      * In general, there are n rows of asterisks where the last row has n asterisks.
      */
     public static void staircase(int n) {
-        // fill in code here
+        for (int i = n; i <= 0; i --) {
+            }
+        System.out.println();
     }
 
     /*
@@ -250,8 +291,10 @@ public class MoreLoopExercises {
      * Thoroughly test all of your functions above.
      */
     public static void main(String[] args) {
-        System.out.println(match("010", "amazing") == 2);
-        System.out.println(match("110", "programming") == 3);
-        System.out.println(match("011", "amazing") == 1);
+        System.out.println(sum3or5(10) == 23);
+        System.out.println(sum3or5(1000) == 233168);
+        stars(5);
+        triangle(5);
+        staircase(5);
     }
 }
