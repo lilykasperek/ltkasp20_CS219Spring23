@@ -96,6 +96,7 @@ public class MoreLoopExercises {
     public static int count7s(int n) {
 
         int count = 0;
+        n = Math.abs(n);
 
         while (n > 0) {
 
@@ -134,14 +135,14 @@ public class MoreLoopExercises {
         }
         // need to return sum
         return sum;
-    } // Time spent: 20 minutes
+    }
 
     /*
      * Return the first factor of n greater than 1
      * and less than n. If no factors return -1.
      * Notice that this function uses longs and not ints.
      *
-     *  factor(25) =
+     *  factor(25) = 5
      *  factor(59953793) == 7727
      *  factor(1531482031) == -1
      *  factor(7304692485435694493L) == -1;
@@ -151,7 +152,13 @@ public class MoreLoopExercises {
      *           remove it?
      */
     public static long factor(long n) {
-        return -1; // shut up error message
+
+        for (int i = 2; i <= Math.sqrt(n); i ++) {
+            if (n % i == 0) {
+                return i;
+            }
+        }
+        return -1;
     }
 
     /*
@@ -231,7 +238,16 @@ public class MoreLoopExercises {
      *
      */
     public static boolean isPalindrome(int n) {
-        return false; // shut up error message
+
+        int m = 0;
+        int tmp = n;
+
+        while (n > 0) {
+            m = m * 10 + (n % 10);
+            n = n / 10;
+        }
+
+        return m == tmp;
     }
 
     /*
@@ -249,8 +265,6 @@ public class MoreLoopExercises {
      * In general, there are n rows of asterisks where the last row has n asterisks.
      */
     public static void staircase(int n) {
-        for (int i = n; i <= 0; i --) {
-            }
         System.out.println();
     }
 
@@ -295,6 +309,12 @@ public class MoreLoopExercises {
         System.out.println(sum3or5(1000) == 233168);
         stars(5);
         triangle(5);
-        staircase(5);
+        System.out.println(count7s(77197) == 3);
+        System.out.println(count7s(1234) == 0);
+        System.out.println(count7s(-7797) == 3);
+        System.out.println(factor(25) == 5);
+        System.out.println(factor(7) == -1);
+        System.out.println(isPalindrome(1221));
+        System.out.println(!isPalindrome(1234));
     }
 }
