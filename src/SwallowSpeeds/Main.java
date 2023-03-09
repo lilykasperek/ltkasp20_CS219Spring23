@@ -1,8 +1,7 @@
 package SwallowSpeeds;
+import Utility.MyArrays;
 import Utility.Util;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -44,6 +43,21 @@ public class Main {
             // show(s);
             double [] vec = loadSpeeds(s);
             System.out.println(Arrays.toString(vec));
+            MyArrays.printDoubles(vec);
+            System.out.println(MyArrays.mean(vec));
+            System.out.println(MyArrays.mean(
+                    // array literal syntax
+                    new double [] {1.0, 2.0, 3.0, 4.0}
+            ) == 2.5);
+            System.out.println(MyArrays.max(
+                    new double [] {1.0, 2.0, 3.0, 4.0}
+            ) == 4.0);
+            System.out.println(MyArrays.min(
+                    new double [] {1.0, 2.0, 3.0, 4.0}
+            ) == 1.0);
+
+            System.out.println(MyArrays.median(vec));
+            MyArrays.printDoubles(vec);
         }
 
     }
