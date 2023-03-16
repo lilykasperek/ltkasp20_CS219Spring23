@@ -1,5 +1,6 @@
 package Utility;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MyArrays {
@@ -27,7 +28,6 @@ public class MyArrays {
         return values;
     }
 
-
     public static double max(double [] values) {
         double largest = values[0];
         // largest = Double.NEGATIVE_INFINITY;
@@ -47,6 +47,14 @@ public class MyArrays {
                 lowest = v;
         return lowest;
 
+    }
+
+    public static double mean(double [] values) {
+        double total = 0;
+        for (double value : values) {
+            total = total + value;
+        }
+        return total/values.length;
     }
 
     public static double median(double [] values) {
@@ -69,12 +77,14 @@ public class MyArrays {
         System.out.println(']');
     }
 
-    public static double mean(double [] values) {
-        double total = 0;
-        for (double value : values) {
-            total = total + value;
-        }
-        return total/values.length;
+    // print doubles is *overloaded* there are multiple
+    // versions with different parameter types
+    public static void printDoubles(ArrayList<Double> values) {
+        System.out.print('[');
+        for (int i = 0; i < values.size() - 1; i++)
+            System.out.print(values.get(i) + ", ");
+        System.out.print(values.get(values.size() - 1));
+        System.out.println(']');
     }
 
     public static void main(String[] args) {
