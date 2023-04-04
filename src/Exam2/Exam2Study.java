@@ -172,7 +172,13 @@ public class Exam2Study {
         String [] words = Util.load_words("http://10.60.15.25/~ehar/cs219/wordle-nyt-solutions.txt",
                 2309);
 
+        String [] words_2 = Util.load_words("http://10.60.15.25/~ehar/cs219/words-big.txt",
+                645289);
+
+
+
         searchFile(words);
+        searchFile(words_2);
 
 
         System.out.println("choose a random word from the list");
@@ -215,6 +221,16 @@ public class Exam2Study {
         int[] test = new int[]{4, 5, 1, 6, 8, 10};
         System.out.println(index_min(test));
 
+        Scanner scan = Util.openSite("http://10.60.15.25/~ehar/cs219/words-big.txt");
+        ArrayList<String> words_long = new ArrayList<>();
+        while (scan.hasNextLine())
+            words_long.add(scan.nextLine().strip().toLowerCase());
+
+        System.out.println(words_long.size());
+
+        String[] new_words_long = words_long.toArray(new String[625289]);
+
+        searchFile(new_words_long);
     }
 
 }
