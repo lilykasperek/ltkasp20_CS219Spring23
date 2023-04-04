@@ -23,6 +23,24 @@ public class Exam2Study {
         return false;
     }
 
+    public static boolean anagram(String s, String t) {
+        // make char arrays
+        char[] ch_s = s.toCharArray();
+        char[] ch_t = t.toCharArray();
+
+        // if length not the same, return false
+        if (ch_s.length != ch_t.length) {
+            return false;
+        }
+
+        // sort arrays
+        Arrays.sort(ch_s);
+        Arrays.sort(ch_t);
+
+        // if sorted arrays are equal, return true
+        return Arrays.equals(ch_s, ch_t);
+    }
+
     // Exercise 7.5 Write a method named areFactors that takes an integer n
     // and an array of integers, and returns true if the numbers in the array are all
     // factors of n (which is to say that n is divisible by all of them).
@@ -221,6 +239,7 @@ public class Exam2Study {
         int[] test = new int[]{4, 5, 1, 6, 8, 10};
         System.out.println(index_min(test));
 
+
         Scanner scan = Util.openSite("http://10.60.15.25/~ehar/cs219/words-big.txt");
         ArrayList<String> words_long = new ArrayList<>();
         while (scan.hasNextLine())
@@ -231,6 +250,8 @@ public class Exam2Study {
         String[] new_words_long = words_long.toArray(new String[625289]);
 
         searchFile(new_words_long);
+
+        System.out.println(anagram("listen", "silent"));
     }
 
 }
