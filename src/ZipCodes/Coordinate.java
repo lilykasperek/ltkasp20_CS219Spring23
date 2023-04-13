@@ -27,10 +27,10 @@ public class Coordinate {
 
     public double dist(Coordinate that) {
 
-        double R = 6371000;
+        int R = 6371000;
 
-        double x = Math.pow(Math.sin(Math.toRadians(that.lat - this.lat / 2)), 2) + Math.cos(Math.toRadians(this.lat)) * Math.cos(Math.toRadians(that.lat)) *
-                Math.pow(Math.toRadians(Math.sin(that.lng - this.lng / 2)), 2);
+        double x = Math.pow(Math.sin(Math.toRadians((that.lat - this.lat) / 2)), 2) + Math.cos(Math.toRadians(this.lat)) * Math.cos(Math.toRadians(that.lat)) *
+                Math.pow(Math.sin(Math.toRadians((that.lng - this.lng) / 2)), 2);
 
         double y = 2*Math.atan2(Math.sqrt(x), (Math.sqrt(1 - x)));
 
