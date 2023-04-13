@@ -55,5 +55,7 @@ public class ZipCode {
         return this.coord.dist(that.coord);
     }
 
+
+
 }
 
