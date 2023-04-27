@@ -8,7 +8,6 @@ public class Coordinate {
         this.lng = lng;
         this.lat = lat;
 
-
     }
     @Override
     public String toString() {
@@ -27,9 +26,23 @@ public class Coordinate {
     }
 
     public double dist(Coordinate that) {
-        // TODO look up the great circle distance
-        // between two GPS coordinates
-        return -1.0;
+
+        int R = 6371000;
+
+        double x = Math.pow(Math.sin(Math.toRadians((that.lat - this.lat) / 2)), 2) + Math.cos(Math.toRadians(this.lat)) * Math.cos(Math.toRadians(that.lat)) *
+                Math.pow(Math.sin(Math.toRadians((that.lng - this.lng) / 2)), 2);
+
+        double y = 2*Math.atan2(Math.sqrt(x), (Math.sqrt(1 - x)));
+
+        return R * y / 1000;
+
+    }
+
+    public static void main(String[] args) {
+        Coordinate boston = new Coordinate(71.02, 42.38);
+        Coordinate canton = new Coordinate(75.16, 44.59);
+
+        System.out.println(boston.dist(canton));
     }
 
 } // clas// s coordinate

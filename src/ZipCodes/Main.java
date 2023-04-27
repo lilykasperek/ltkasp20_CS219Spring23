@@ -21,9 +21,20 @@ public class Main {
         System.out.println(z1.getCoord().dist(z2.getCoord()));
         System.out.println(z1.dist(z2));
 
+
+        Coordinate boston = new Coordinate(71.02, 42.38);
+        Coordinate canton = new Coordinate(75.16, 44.59);
+
+        System.out.println(boston.dist(canton));
+
         // create ZipCode DB objects
         ZipCodeDB db = new ZipCodeDB();
         db.load();
+        System.out.println(db.findByZip("13617"));
+        System.out.println(db.findByZip("Apple"));
 
+        db.findDuplicates();
+
+        return;
     }
 }
