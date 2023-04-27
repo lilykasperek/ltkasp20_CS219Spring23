@@ -4,7 +4,7 @@ public class Main {
 
     public static void main(String[] args) {
         Coordinate c1 = new Coordinate(10, 20);
-        Coordinate c2 = new Coordinate(20 30);
+        Coordinate c2 = new Coordinate(20, 30);
 
         System.out.println(c1);
         System.out.println(c1.dist(c2));
